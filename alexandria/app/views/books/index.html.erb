@@ -1,0 +1,33 @@
+<% if @books.size <= 0 %>
+  <h1>No Books</h1>
+  <% else %>
+  <h1><%= pluralize(@books.size, 'Book') %></h1>
+
+  <table style="width:100%; border:1px solid black; padding: 15px; text-align:left; border-spacing:5px">
+    <tr style="width: 100%; background-color: #f1f1c1;">
+      <th>Name</th>
+      <th>Description</th>
+      <th>Chapter Book?</th>
+      <th>Paid Up?</th>
+    </tr>
+
+    <% @books.each do |book| %>
+      <% if book.id.even? %>
+        <tr style="background-color: #eee;">
+      <% else %>
+        <tr style="background-color: #fff;">
+      <% end %>
+      <td><%= book.name %></td>
+      <td><%= book.description %></td>
+      <td><%= book.chapter %></td>
+
+      <% if book.paid? == true %>
+        <td style="background-color: darkgreen; color: white"><%= book.paid %></td>
+      <% else %>
+        <td><%= book.paid %></td>
+      <% end %>
+    </tr>
+    <% end %>
+
+  </table>
+<% end %>

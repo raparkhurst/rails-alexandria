@@ -1,0 +1,131 @@
+# -*- mode: ruby -*-
+
+private_network_ip = '172.20.0.100'
+username = %w{USER USERNAME}.map{|x|u=(ENV[x]||'').gsub(/[^\w]/,''); u unless u.empty?}.compact.first
+if username.nil?
+  puts 'ERROR: Could not determine username from environment'
+  exit 1
+end
+
+
+
+
+# This script can be replaced with the "config.omnibus" provisioning directive
+# (requires "vagrant plugin install vagrant-omnibus"), but that does not save 
+# a copy of the package locally for re-use.  I prefer this method slightly.
+$preSetupScript = <<PRESCRIPT
+  if ! dpkg -s chef
+  then
+    echo "Acquiring and installing Chef client package."
+    PKGDIR=/vagrant/.packages
+
+    #PKGURL=https://packages.chef.io/stable/ubuntu/10.04/chef_12.9.41-1_amd64.deb
+    #PKGURL=https://packages.chef.io/files/stable/chef/12.17.44/ubuntu/16.04/chef_12.17.44-1_amd64.deb
+    #PKGURL=https://packages.chef.io/files/stable/chef/12.11.18/ubuntu/14.04/chef_12.11.18-1_amd64.deb
+
+    PKGURL=https://packages.chef.io/files/stable/chef/12.19.36/ubuntu/16.04/chef_12.19.36-1_amd64.deb
+
+    PKGFILE=$PKGDIR/$(basename "$PKGURL")
+    if [ ! -f $PKGFILE ]
+    then
+      [ -d $PKGDIR ] || mkdir -p $PKGDIR
+      wget -q -O $PKGFILE $PKGURL
+    fi
+    dpkg -i $PKGFILE
+  fi
+
+  apt-get update
+PRESCRIPT
+
+
+
+
+VAGRANT_API_VERSION = '2'
+Vagrant.configure(VAGRANT_API_VERSION) do |config|
+
+  config.vm.provider 'virtualbox' do |vb|
+    vb.customize ['modifyvm', :id, '--memory', '2048']
+  end
+
+  #config.omnibus.chef_version = '12.11.18'
+  #config.omnibus.chef_version = '12.19.36'
+
+  config.vm.hostname = "alexandria-#{username}"
+  config.vm.network :private_network, ip: private_network_ip
+  #config.vm.box = 'bento/ubuntu-16.04'
+
+  config.vm.box = 'opscode_ubuntu-16.04_chef-provisionerless.box'
+  config.vm.box_url = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-16.04_chef-provisionerless.box'
+
+  
+  config.vm.synced_folder "~/projects/raparkhurst/rails-alexandria/alexandria", "/var/www/alexandria"
+  
+  #config.vm.provision :shell, :inline => $preSetupScript
+
+  config.vm.provision :chef_client do |chef|
+#    chef.cookbooks_path = [ "./chef/cookbooks" ]
+#    chef.roles_path = [ "./chef/roles" ]
+#    chef.data_bags_path = "~/projects/digitalsynapse/chef-digitalsynapse/data_bags"
+#    chef.environments_path = [ "~/projects/digitalsynapse/chef-digitalsynapse/environments" ]
+
+    chef.node_name = config.vm.hostname
+    chef.chef_server_url = 'https://chef.digitalsynapse.io/organizations/digitalsynapse'
+    chef.validation_key_path = '~/.chef/digitalsynapse-validator.pem'
+
+    chef.validation_client_name = 'digitalsynapse-validator'
+
+    chef.environment = "development"
+    chef.delete_node = true
+    chef.delete_client = true
+    
+    chef.json = {
+      "postgresql" => {
+        "password" => {
+          "postgres" => "digitalsynapse",
+        }
+      },
+      "nginx" => {
+        "repo_source" => "passenger",
+        "package_name" => "nginx-extras",
+        "passenger" => {
+          "install_method" => "package"
+        }
+      },
+      "ds-base" => {
+        "rails" => {
+          "path" => "/var/www/alexandria/public",
+          "rails_app_env" => "development"
+        },
+        "ds-alexandria" => {
+          "database" => {
+            "database_type" => "postgres"
+          },
+          "development" => {
+            "database" => {
+              "database_name" => "alexandria_development_db",
+              "database_user" => "alexandria_development_user"
+            }
+          },
+          "test" => {
+            "database" => {
+              "database_name" => "alexandria_test_db",
+              "database_user" => "alexandria_test_user"
+            }
+          },
+          "production" => {
+            "database" => {
+              "database_name" => "alexandria_db",
+              "database_user" => "alexandria"
+            }
+          }
+        }
+      },
+      "vagrant" => "true"
+    }
+
+    #chef.add_recipe "ds-base::rails"
+    #chef.add_recipe "ds-alexandria::everything"
+    #chef.add_role "db_postgres_standalone"
+    chef.add_role "rails_alexandria_server"
+  end
+end

@@ -1,0 +1,38 @@
+{
+  "name": "rails_alexandria_server",
+  "description": " role to help setup Mellon",
+  "chef_type": "role",
+  "default_attributes": {
+    "ds-base": {
+      "rails": {
+        "path": "/var/www/alexandria",
+        "rails_app_env": "development"
+      }
+    },
+    "postgresql": {
+      "password": {
+        "postgres": "digitalsynapse"
+      }
+    }
+  },
+  "override_attributes": {
+      "ds-rails": {
+	  "rails": {
+	      "application_name": "alexandria"
+	  },
+      "database": {
+          "type": "postgresql"
+      },
+      "development": {
+        "database": {
+          "database_password": "digitalsynapse"
+        }
+      }
+    }
+  },
+  "run_list": [
+      "recipe[ds-base::rails]",
+      "recipe[ds-rails::development_node]"
+      
+  ]
+}
