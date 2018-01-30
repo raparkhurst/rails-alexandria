@@ -25,6 +25,11 @@ gem 'therubyracer', platforms: :ruby
 # Bootstrap Integration
 gem 'bootstrap', '~> 4.0.0'
 
+# fontawesome
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'
+
+
 # tooltip gem support for Bootstrap -- is a dependency of bootstrap
 # specifying in here for documentation purposes
 gem 'popper_js'

@@ -19,7 +19,7 @@ test:
   pool: 5
   host: 127.0.0.1
   username: alexandria_test_user
-  password: fa67e664f090390e9f48
+  password: aa9de59f54f4ebc57dcc
 
 production:
   adapter: postgresql
@@ -28,4 +28,4 @@ production:
   pool: 5
   host: 127.0.0.1
   username: alexandria_user
-  password: 750bcb2118726bf55621
+  password: bda28b03ccf588986a8d
