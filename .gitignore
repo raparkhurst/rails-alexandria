@@ -1,4 +1,5 @@
 .idea*
 .idea/*
+vagrant/.vagrant/*
 .vagrant/*
-alexandria/Gemfile.lock
+Gemfile.lock
