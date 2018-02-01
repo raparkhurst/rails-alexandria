@@ -69,6 +69,14 @@
                       <% end %>
 
 
+                      <!-- Is book part of a series -->
+                      <% if book.part_of_series %>
+                          <%= image_tag("icons/flat/book_series_color.svg", alt: "Chapter Book", width: '16', height: '16', title: "Part of a series") %>
+                      <% else %>
+                          <%= image_tag("icons/flat/book_series_color.svg", alt: "Chapter Book", width: '16', height: '16', style: "filter: grayscale(100%);", title: "Not part of a series") %>
+                      <% end %>
+
+
                       <!-- Has been been paid -->
                       <% if book.paid? %>
                         <!-- <td style="text-align: center;"> -->
