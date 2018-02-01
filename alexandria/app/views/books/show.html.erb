@@ -29,13 +29,26 @@
     <!-- Main page section -->
     <div class="container">
 
-      <h1>Book Information for <%= @book.name %></h1>
+      <!-- header block -->
+      <div class="row">
+
+        <!-- Header Information -->
+        <div class="col-9">
+          <h1>Book Information for <%= @book.name %></h1>
+        </div>
+
+        <!-- Book badges -->
+        <div class="col-3">
+          <!-- fill this in later when we have more information -->
+
+        </div>
+      </div>
 
       <!-- Book Name -->
       <div class="form-group row">
         <label for="Book Name" class="col-2 col-form-label">Book Name</label>
         <div class="col-10">
-          <input class="form-control" type="text" value=<%= @book.name %>  id="book-name">
+          <input class="form-control" type="text" value="<%= @book.name %>"  id="book-name">
         </div>
       </div>
 
@@ -44,7 +57,7 @@
       <div class="form-group row">
         <label for="Book Description" class="col-2 col-form-label">Book Description</label>
         <div class="col-10">
-          <input class="form-control" type="text" value=<%= @book.description %> id="book-description">
+          <input class="form-control" type="text" value="<%= @book.description %>" id="book-description">
         </div>
       </div>
 
@@ -53,7 +66,7 @@
       <div class="form-group row">
         <label for="Is Book a Chapter Book" class="col-2 col-form-label">Is it a chapter book</label>
         <div class="col-10">
-          <input class="form-control" type="text" value=<%= @book.chapter %> id="book-chapter">
+          <input class="form-control" type="text" value="<%= @book.chapter %>" id="book-chapter">
         </div>
       </div>
 
@@ -62,7 +75,7 @@
       <div class="form-group row">
         <label for="Is book part of a series" class="col-2 col-form-label">Is it part of a series</label>
         <div class="col-10">
-          <input class="form-control" type="text" value=<%= @book.part_of_series %> id="book-in-series">
+          <input class="form-control" type="text" value="<%= @book.part_of_series %>" id="book-in-series">
         </div>
       </div>
 
