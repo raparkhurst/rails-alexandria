@@ -12,5 +12,9 @@ describe 'Shows an individual book' do
                         part_of_series: false)
 
     visit book_url(book)
+
+    expect(page).to have_text(book.name)
+    #expect(page).to have_text(book.description)
+
   end
 end

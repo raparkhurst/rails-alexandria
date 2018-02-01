@@ -54,7 +54,7 @@
                         <tr class="even GradeX">
                     <% end %>
                     <td><%= book.id %></th>
-                    <td><%= book.name[0..40] %></td>
+                    <td><%= link_to book.name, book %></td>
                     <td><%= book.description[0..30] %></td>
 
 
