@@ -26,9 +26,11 @@ describe 'Viewing the list of books' do
     expect(page).to have_text(book2.name)
     expect(page).to have_text(book3.name)
 
-    expect(page).to have_text(book1.chapter)
     expect(page).to have_text(book1.description[0..10])
-    expect(page).to have_text(book1.paid)
+
+    # Removed these elements from the test as they have been replaced by icons/badges
+    #expect(page).to have_text(book1.chapter)
+    #expect(page).to have_text(book1.paid)
   end
 
 

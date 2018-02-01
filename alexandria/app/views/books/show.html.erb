@@ -1,0 +1,117 @@
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+
+    <!-- Brand logo -->
+    <a class="navbar-brand" href="#">
+      <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %> Alexandria
+    </a>
+
+  </nav>
+  <!-- End top navbar -->
+
+
+
+  <!-- Page content -->
+  <nav id="content">
+    <!-- Main page section -->
+    <div class="container">
+
+      <h1>Book Information for <%= @book.name %></h1>
+
+      <!-- Book Name -->
+      <div class="form-group row">
+        <label for="Book Name" class="col-2 col-form-label">Book Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value=<%= @book.name %>  id="book-name">
+        </div>
+      </div>
+
+
+      <!-- Book Description -->
+      <div class="form-group row">
+        <label for="Book Description" class="col-2 col-form-label">Book Description</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value=<%= @book.description %> id="book-description">
+        </div>
+      </div>
+
+
+      <!-- Is book a chapter book -->
+      <div class="form-group row">
+        <label for="Is Book a Chapter Book" class="col-2 col-form-label">Is it a chapter book</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value=<%= @book.chapter %> id="book-chapter">
+        </div>
+      </div>
+
+
+      <!-- Is book part of a series -->
+      <div class="form-group row">
+        <label for="Is book part of a series" class="col-2 col-form-label">Is it part of a series</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value=<%= @book.part_of_series %> id="book-in-series">
+        </div>
+      </div>
+
+
+      <!-- Date they started to read the book -->
+      <div class="form-group row">
+        <label for="date-start-date-input" class="col-2 col-form-label">Date Started</label>
+        <div class="col-10">
+          <input class="form-control" type="date" value=<%= @book.date_start %> id="date-start-date-input">
+        </div>
+      </div>
+
+
+      <!-- Date they finished reading the book -->
+      <div class="form-group row">
+        <label for="date-end-date-input" class="col-2 col-form-label">Date Finished</label>
+        <div class="col-10">
+          <input class="form-control" type="date" value=<%= @book.date_end %> id="date-end-date-input">
+        </div>
+      </div>
+
+
+      <!-- Is book reward paid out -->
+      <div class="form-group row">
+        <label for="Have you received your reward" class="col-2 col-form-label">Has book been paid out</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value=<%= @book.paid %> id="book-paid">
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+    <!-- End Page Content -->
+
+
+
+  </nav>
+
+
+
+
+
+
+
+
+
+
+</body>
+
