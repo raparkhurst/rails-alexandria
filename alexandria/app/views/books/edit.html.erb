@@ -101,13 +101,16 @@
         </div>
 
 
-        <%= f.submit :class => "btn btn-outline-success" %>
+        <div class="btn-group">
 
-        <!-- button to go back to 'all books' -->
-        <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
+          <!-- button to go back to 'all books' -->
+          <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
 
-        <!-- button to cancel editing entry -->
-        <%= link_to "Cancel", book_path, :class => "btn btn-outline-danger" %>
+          <%= f.submit :class => "btn btn-outline-success" %>
+
+          <!-- button to cancel editing entry -->
+          <%= link_to "Cancel", book_path, :class => "btn btn-outline-danger" %>
+        </div>
 
       <% end %>
 

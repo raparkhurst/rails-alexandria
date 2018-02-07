@@ -111,12 +111,13 @@
 
 
       <!-- Navigation Buttons -->
+      <div class="btn-group">
+        <!-- button to go back to 'all books' -->
+        <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
 
-      <!-- button to go back to 'all books' -->
-      <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
-
-      <!-- button to edit entry -->
-      <%= link_to "Edit", edit_book_path(@book), :class => "btn btn-outline-secondary" %>
+        <!-- button to edit entry -->
+        <%= link_to "Edit Book", edit_book_path(@book), :class => "btn btn-outline-success" %>
+      </div>
 
 
       <!-- End Navigation Buttons -->
