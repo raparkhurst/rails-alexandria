@@ -1,0 +1,130 @@
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link href="/assets/logos/logo_16x16.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+
+    <!-- Brand logo -->
+    <a class="navbar-brand" href="#">
+      <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %> Alexandria
+    </a>
+
+  </nav>
+  <!-- End top navbar -->
+
+
+
+  <!-- Page content -->
+  <nav id="content">
+    <!-- Main page section -->
+    <div class="container">
+
+      <!-- header block -->
+      <div class="row">
+
+        <!-- Header Information -->
+        <div class="col-9">
+          <h1>Book Information for <%= @book.name %></h1>
+        </div>
+
+        <!-- Book badges -->
+        <div class="col-3">
+          <!-- fill this in later when we have more information -->
+
+        </div>
+      </div>
+
+
+      <%= form_for(@book) do |f| %>
+
+        <!-- Book Name -->
+        <div class="form-group row">
+          <%= f.label "Book Title", :class => "col-3 col-form-label"%>
+          <%= f.text_field :name, :class => "col-9 form-control"%>
+        </div>
+
+
+        <!-- Book Description -->
+        <div class="form-group row">
+          <%= f.label "Book summary / review", :class => "col-3 col-form-label"%>
+          <%= f.text_area :description, rows: 7, :class => "col-9 form-control"%>
+        </div>
+
+
+        <!-- Is book a chapter book -->
+        <div class="form-group row">
+          <%= f.label "Is book a chapter book", :class => "col-3 col-form-label"%>
+          <!-- <%= f.text_field :chapter, :class => "col-9 form-control"%> -->
+          <%= f.select :chapter, ['true', 'false'], :class => "col-9" %>
+        </div>
+
+
+        <!-- Is book part of a series -->
+        <div class="form-group row">
+          <%= f.label "Is the book part of a series", :class => "col-3 col-form-label"%>
+          <!-- <%= f.text_field :part_of_series, :class => "col-9 form-control"%> -->
+          <%= f.select :part_of_series, ['true', 'false'], :class => "col-9" %>
+        </div>
+
+
+        <!-- Date started reading book -->
+        <div class="form-group row">
+          <%= f.label "Date you started reading the book", :class => "col-3 col-form-label"%>
+          <%= f.datetime_select :date_start, :class => "col-9 form-control"%>
+        </div>
+
+
+        <!-- Date ended reading book -->
+        <div class="form-group row">
+          <%= f.label "Date you finished the book", :class => "col-3 col-form-label"%>
+          <%= f.date_field :date_end, :class => "col-9 form-control"%>
+        </div>
+
+
+        <!-- Has reward been paid out -->
+        <div class="form-group row">
+          <%= f.label "Has been been paid out", :class => "col-3 col-form-label"%>
+          <!-- <%= f.text_field :paid, :class => "col-9 form-control"%> -->
+          <%= f.select :paid, ['true', 'false'], :class => "col-9" %>
+        </div>
+
+
+        <%= f.submit :class => "btn btn-outline-success" %>
+
+        <!-- button to go back to 'all books' -->
+        <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
+
+        <!-- button to cancel editing entry -->
+        <%= link_to "Cancel", book_path, :class => "btn btn-outline-danger" %>
+
+      <% end %>
+
+
+
+
+    </div>
+    <!-- End Page Content -->
+
+
+
+
+  </nav>
+
+
+
+
+
+</body>
+

@@ -4,6 +4,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <link href="/assets/logos/logo_16x16.ico" rel="shortcut icon" type="image/x-icon" />
+
 </head>
 
 
@@ -48,7 +50,7 @@
       <div class="form-group row">
         <label for="Book Name" class="col-2 col-form-label">Book Name</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="<%= @book.name %>"  id="book-name">
+          <input class="form-control" type="text" value="<%= @book.name %>"  id="book-name" disabled>
         </div>
       </div>
 
@@ -57,7 +59,7 @@
       <div class="form-group row">
         <label for="Book Description" class="col-2 col-form-label">Book Description</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="<%= @book.description %>" id="book-description">
+          <input class="form-control" type="text" value="<%= @book.description %>" id="book-description" disabled>
         </div>
       </div>
 
@@ -66,7 +68,7 @@
       <div class="form-group row">
         <label for="Is Book a Chapter Book" class="col-2 col-form-label">Is it a chapter book</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="<%= @book.chapter %>" id="book-chapter">
+          <input class="form-control" type="text" value="<%= @book.chapter %>" id="book-chapter" disabled>
         </div>
       </div>
 
@@ -75,7 +77,7 @@
       <div class="form-group row">
         <label for="Is book part of a series" class="col-2 col-form-label">Is it part of a series</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="<%= @book.part_of_series %>" id="book-in-series">
+          <input class="form-control" type="text" value="<%= @book.part_of_series %>" id="book-in-series" disabled>
         </div>
       </div>
 
@@ -84,7 +86,7 @@
       <div class="form-group row">
         <label for="date-start-date-input" class="col-2 col-form-label">Date Started</label>
         <div class="col-10">
-          <input class="form-control" type="date" value=<%= @book.date_start %> id="date-start-date-input">
+          <input class="form-control" type="date" value=<%= @book.date_start %> id="date-start-date-input" disabled>
         </div>
       </div>
 
@@ -93,7 +95,7 @@
       <div class="form-group row">
         <label for="date-end-date-input" class="col-2 col-form-label">Date Finished</label>
         <div class="col-10">
-          <input class="form-control" type="date" value=<%= @book.date_end %> id="date-end-date-input">
+          <input class="form-control" type="date" value=<%= @book.date_end %> id="date-end-date-input" disabled>
         </div>
       </div>
 
@@ -102,13 +104,39 @@
       <div class="form-group row">
         <label for="Have you received your reward" class="col-2 col-form-label">Has book been paid out</label>
         <div class="col-10">
-          <input class="form-control" type="text" value=<%= @book.paid %> id="book-paid">
+          <input class="form-control" type="text" value=<%= @book.paid %> id="book-paid" disabled>
         </div>
       </div>
 
-      <div class="btn btn-primary">
-        <%= link_to "All Books", books_path, :style => 'color:white;', :class => "btn" %>
-      </div>
+
+
+      <!-- Navigation Buttons -->
+
+      <!-- button to go back to 'all books' -->
+      <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
+
+      <!-- button to edit entry -->
+      <%= link_to "Edit", edit_book_path(@book), :class => "btn btn-outline-secondary" %>
+
+
+      <!-- End Navigation Buttons -->
+
+
+
+
+
+
+      <!-- here for historical reference -->
+      <!-- original way I'd thought to make this happen -- makes the buttons larger!  -->
+      <!-- <div class="btn btn-primary"> -->
+      <!--   <%= link_to "Edit", edit_book_path(@book), :style => 'color:white;', :class => "btn btn-primary" %> -->
+      <!-- </div> -->
+      <!--  -->
+      <!-- <div class="btn btn-primary"> -->
+      <!--   <%= link_to "All Books", books_path, :style => 'color:white;', :class => "btn" %> -->
+      <!-- </div> -->
+
+      <!-- end historical reference -->
 
     </div>
     <!-- End Page Content -->
