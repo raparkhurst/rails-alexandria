@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "Editing a Book" do
 
+
+  # Partially working.  Need to learn rspec/capybarry more to know how to work with advanced (i.e. non-text) fields
   it "updates the movie and shows the movie's updated details" do
     book = Book.create(book_attributes)
 
