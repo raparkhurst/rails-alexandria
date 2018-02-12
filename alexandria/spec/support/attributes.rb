@@ -9,3 +9,8 @@ def book_attributes(overrides = {})
       part_of_series: false
   }.merge(overrides)
 end
+
+
+def book_attributes_multiple(overrides = {})
+
+end

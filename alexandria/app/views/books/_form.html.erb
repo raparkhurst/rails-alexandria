@@ -1,0 +1,67 @@
+<%= form_for(@book) do |f| %>
+
+  <!-- Book Name -->
+  <div class="form-group row">
+    <%= f.label "Book Title", :class => "col-3 col-form-label"%>
+    <%= f.text_field :name, autofocus: true, :class => "col-9 form-control", id: 'book-name' %>
+  </div>
+
+
+  <!-- Book Description -->
+  <div class="form-group row">
+    <%= f.label "Book summary / review", :class => "col-3 col-form-label" %>
+    <%= f.text_area :description, rows: 7, :class => "col-9 form-control", id: 'book-description' %>
+  </div>
+
+
+  <!-- Is book a chapter book -->
+  <div class="form-group row">
+    <%= f.label "Is book a chapter book", :class => "col-3 col-form-label"%>
+    <!-- <%= f.text_field :chapter, :class => "col-9 form-control"%> -->
+    <%= f.select :chapter, ['false', 'true'], :class => "col-9", id: 'book-is-chapter-book' %>
+  </div>
+
+
+  <!-- Is book part of a series -->
+  <div class="form-group row">
+    <%= f.label "Is the book part of a series", :class => "col-3 col-form-label"%>
+    <!-- <%= f.text_field :part_of_series, :class => "col-9 form-control"%> -->
+    <%= f.select :part_of_series, ['false', 'true'], :class => "col-9", id: 'book-is-part-of-series' %>
+  </div>
+
+
+  <!-- Date started reading book -->
+  <div class="form-group row">
+    <%= f.label "Date you started reading", :class => "col-3 col-form-label"%>
+    <%= f.date_field :date_start, :class => "col-9 form-control", id: 'book-date-start-reading' %>
+  </div>
+
+
+  <!-- Date ended reading book -->
+  <div class="form-group row">
+    <%= f.label "Date you finished the book", :class => "col-3 col-form-label"%>
+    <%= f.date_field :date_end, :class => "col-9 form-control", id: 'book-date-end' %>
+  </div>
+
+
+  <!-- Has reward been paid out -->
+  <div class="form-group row">
+    <%= f.label "Has been been paid out", :class => "col-3 col-form-label"%>
+    <!-- <%= f.text_field :paid, :class => "col-9 form-control"%> -->
+    <%= f.select :paid, ['false', 'true'], :class => "col-9", id: 'book-paid-out' %>
+  </div>
+
+
+  <!-- Navigation Buttons -->
+  <div class="btn-group">
+
+    <%= f.submit :class => "btn btn-outline-success", id: 'button-submit' %>
+
+
+    <!-- button to cancel editing entry -->
+    <%= link_to "Cancel", books_path, :class => "btn btn-outline-secondary", id: 'button-cancel' %>
+
+  </div>
+  <!-- End Navigation Buttons -->
+
+<% end %>
