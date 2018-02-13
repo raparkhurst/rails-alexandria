@@ -22,14 +22,14 @@
               <h1>No Books</h1>
           <% else %>
               <h1><%= pluralize(@books.size, 'Book') %></h1>
+          <% end %>
         </div>
         <div class="col-sm-4" style="padding-top: 10px;" >
           <%= link_to "Add Book", new_book_path, :class => "btn btn-outline-success float-right" %>
         </div>
-
       </div>
       <!-- End heading row -->
-
+      <% if @books.size > 0 %>
         <!-- Table row -->
         <div class="row">
           <div class="col-sm-12">
@@ -88,12 +88,10 @@
                     <% end %>
                     </tbody>
                   </table>
-          <% end %>
-
 
           </div>
-          </div>
-
+        </div>
+      <% end %>
 
     </div>
 
