@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
   def index
-    #@books = Book.order('id')
-    @books = Book.where(date_end: nil).order('id')
+    @booksCompleteList = Book.getAllBooks
+    @booksCurrentlyReading = Book.getCurrentlyReading
+    @booksFinishedReading = Book.getFinishedReading
   end
 
 

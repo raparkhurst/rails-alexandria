@@ -1,15 +1,4 @@
-<%= render 'header' %>
-
-<body>
-
-
 <div class="wrapper">
-  <!-- Top Navbar -->
-  <%= render 'navbar' %>
-  <!-- End top navbar -->
-
-
-
   <!-- Page content -->
   <nav id="content">
     <!-- Main page section -->
@@ -25,8 +14,6 @@
       </div>
       <!-- End heading row -->
 
-
-
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-reading-tab" data-toggle="tab" href="#nav-reading" role="tab" aria-controls="nav-reading" aria-selected="true">Books I'm Reading</a>
@@ -36,20 +23,19 @@
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-reading" role="tabpanel" aria-labelledby="nav-reading-tab">
-          <%= render 'reading_list' %>
+          <%= render 'reading_list', book_query: @booksCurrentlyReading %>
         </div>
 
 
         <div class="tab-pane fade" id="nav-completed" role="tabpanel" aria-labelledby="nav-completed-tab">
-          <%= render 'reading_list' %>
+          <%= render 'reading_list', book_query: @booksFinishedReading %>
         </div>
 
 
         <div class="tab-pane fade" id="nav-allbooks" role="tabpanel" aria-labelledby="nav-allbooks-tab">
-          <%= render 'reading_list' %>
+          <%= render 'reading_list', book_query: @booksCompleteList %>
         </div>
       </div>
-
 
 
 
@@ -60,7 +46,4 @@
 
 
   </nav>
-
-
-</body>
-
+</div>

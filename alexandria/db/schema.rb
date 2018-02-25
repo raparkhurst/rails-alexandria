@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130203654) do
+ActiveRecord::Schema.define(version: 20180224043235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
     t.string "name"
-    t.boolean "chapter"
+    t.boolean "chapter", default: false
     t.string "description"
-    t.boolean "paid"
+    t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "date_start"
+    t.datetime "date_start", default: "2018-02-24 04:27:41"
     t.datetime "date_end"
     t.datetime "date_paid"
-    t.boolean "part_of_series"
+    t.boolean "part_of_series", default: false
   end
 
 end

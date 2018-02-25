@@ -1,15 +1,4 @@
-<%= render 'header' %>
-
-<body>
-
-
 <div class="wrapper">
-  <!-- Top Navbar -->
-  <%= render 'navbar' %>
-  <!-- End top navbar -->
-
-
-
   <!-- Page content -->
   <nav id="content">
     <!-- Main page section -->
@@ -20,7 +9,8 @@
 
         <!-- Header Information -->
         <div class="col-9">
-          <h1>Book Information for <%= @book.name %></h1>
+          <!-- <h1>Book Information for <%= @book.name %></h1> -->
+          <h1></h1>
         </div>
 
         <!-- Book badges -->
@@ -34,22 +24,8 @@
       <%= render 'form', form_page: "edit" %>
 
 
-
-
-
-
-
     </div>
     <!-- End Page Content -->
 
-
-
-
   </nav>
-
-
-
-
-
-</body>
-
+</div>
