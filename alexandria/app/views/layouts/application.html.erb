@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Alexandria</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Alexandria</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link href="/assets/logos/logo_16x16.ico" rel="shortcut icon" type="image/x-icon" />
-  </head>
+  <link href="/assets/logos/logo_16x16.ico" rel="shortcut icon" type="image/x-icon" />
 
-
-  <header>
-    <!-- <nav class="navbar navbar-expand navbar-dark bg-dark"> -->
-
-      <!-- Brand logo -->
-      <!-- <a class="navbar-brand" href="/"> -->
-        <!-- <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %> Alexandria -->
-      <!-- </a> -->
-
-    <!-- </nav> -->
-  </header>
+</head>
 
 
-  <body>
+<header>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
 
+    <!-- Brand logo -->
+    <a class="navbar-brand" href="/">
+      <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %> Alexandria
+    </a>
 
-
-
-    <%= yield %>
-  </body>
-
-
-  <nav class="navbar fixed-bottom navbar-light bg-faded">
-    <div class="container">
-      <copyright>
-        &copy; Digital Synapse, LLC <%= Time.now.year %>
-      </copyright>
-      <nav>
-        <ul>
-          <a class="navbar-brand" href="#">Home</a>
-          <a class="navbar-brand" href="#">About</a>
-        </ul>
-      </nav>
-    </div>
-
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
   </nav>
+</header>
+
+
+<body>
+
+<div id="wrapper">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+
+
+    <%= render 'sidebar' %>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+
+      <%= yield %>
+
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+
+<!-- yield -->
+</body>
+
+
+<nav class="navbar fixed-bottom navbar-light bg-faded">
+  <div class="container">
+    <copyright>
+      &copy; Digital Synapse, LLC <%= Time.now.year %>
+    </copyright>
+    <nav>
+      <ul>
+        <a class="navbar-brand" href="#">Home</a>
+        <a class="navbar-brand" href="#">About</a>
+      </ul>
+    </nav>
+  </div>
+
+</nav>
 
 </html>
+
