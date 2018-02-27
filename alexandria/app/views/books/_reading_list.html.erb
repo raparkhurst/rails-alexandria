@@ -28,15 +28,19 @@
               <% if book.chapter? %>
                 <!-- <td style="text-align: center;"><i class="fa fa-book" aria-hidden="true"></i></td> -->
                 <%= image_tag("icons/flat/book_chapter_color.svg", alt: "Chapter Book", width: '16', height: '16', title: "Is a chapter book") %>
+                <!-- <i class="fa fa-bookmark" aria-hidden="true"></i> -->
               <% else %>
                 <%= image_tag("icons/flat/book_nochapter_color.svg", alt: "Non-Chapter Book", width: '16', height: '16', title: "Is not a chapter book") %>
+                <!-- <i class="fa fa-bookmark-o" aria-hidden="true"></i> -->
               <% end %>
 
 
               <!-- Is book part of a series -->
               <% if book.part_of_series %>
+                <!-- <i style="color:green;" class="fa fa-book" aria-hidden="true"></i> -->
                 <%= image_tag("icons/flat/book_series_color.svg", alt: "Chapter Book", width: '16', height: '16', title: "Part of a series") %>
               <% else %>
+                <!-- <i class="fa fa-book" aria-hidden="true"></i> -->
                 <%= image_tag("icons/flat/book_series_color.svg", alt: "Chapter Book", width: '16', height: '16', style: "filter: grayscale(100%);", title: "Not part of a series") %>
               <% end %>
 

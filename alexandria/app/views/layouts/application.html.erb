@@ -16,15 +16,39 @@
   <!-- options I had but aren't using:  navbar-expand -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <!-- Brand logo -->
-    <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
+    <!-- <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"> -->
+    <a class="navbar-brand" href="#" >
       <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %>
     </a>
 
 
-
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      <%= link_to books_path, class: "nav-item nav-link" do %>
+        <i class="fa fa-home" aria-hidden="true"></i> Home
+      <% end  %>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-book" aria-hidden="true"></i> Books
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <%= link_to new_book_path, class: "dropdown-item" do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>  Add Book
+          <% end  %>
+
+          <a class="dropdown-item disabled" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> Reading Stats</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item disabled" href="#"><i class="fa fa-gift" aria-hidden="true"></i> Book Rewards</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Help</a>
       </li>
 
     </ul>
