@@ -40,7 +40,7 @@ end
 
 # jQuery gem needed by bootstrap 4 and RAILS 5.1+
 gem 'jquery-rails'
-
+gem 'jquery-easing-rails'
 
 
 
