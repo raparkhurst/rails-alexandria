@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   #patch   "books/:id"           => "books#update"
   resources :books
 
+
+  # api routes
+  get '/api/i18n/:locale' => 'api#i18n'
+
 end
