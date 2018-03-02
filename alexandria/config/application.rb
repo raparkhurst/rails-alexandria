@@ -51,6 +51,9 @@ module Alexandria
                                  'angle/themes/theme-g.css',
                                  'angle/themes/theme-h.css'
                                 ]
+
+    #config.assets.precompile += ['angle/themes/theme-d.css']
+
     # Controller assets
     config.assets.precompile += [
                                  # Scripts

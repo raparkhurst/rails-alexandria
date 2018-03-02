@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224043235) do
+ActiveRecord::Schema.define(version: 20180224042818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180224043235) do
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "date_start", default: "2018-02-27 19:49:07"
+    t.datetime "date_start", default: "2018-02-28 21:11:51"
     t.datetime "date_end"
     t.datetime "date_paid"
     t.boolean "part_of_series", default: false
