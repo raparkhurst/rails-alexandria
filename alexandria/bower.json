@@ -1,0 +1,6 @@
+{
+  "name": "admin_lte",
+  "dependencies": {
+    "admin-lte": "2.4.3"
+  }
+}

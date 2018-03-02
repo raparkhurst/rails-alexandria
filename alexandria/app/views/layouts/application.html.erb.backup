@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alexandria</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <link href="/assets/logos/logo_16x16.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+
+
+<header>
+  <!-- options I had but aren't using:  navbar-expand -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <!-- Brand logo -->
+    <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
+      <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %>
+    </a>
+
+
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+
+  </nav>
+</header>
+
+
+<body>
+
+<div id="wrapper">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+
+
+    <%= render 'sidebar' %>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+
+
+      <%= yield %>
+
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+
+<!-- yield -->
+</body>
+
+
+<nav class="navbar fixed-bottom navbar-light bg-faded">
+  <div class="container text-center">
+    <copyright>&copy; Digital Synapse, LLC <%= Time.now.year %></copyright>
+    <!--
+    <nav>
+      <ul>
+        <a class="navbar-brand" href="#">Home</a>
+        <a class="navbar-brand" href="#">About</a>
+      </ul>
+    </nav>
+    -->
+  </div>
+
+</nav>
+
+</html>
+
