@@ -3,15 +3,71 @@
    <nav class="sidebar">
       <!-- START sidebar nav-->
       <ul class="nav">
-         <li class="nav-heading">
-            <span>Main Navigation</span>
-         </li>
-         <li class="<%= 'active' if controller?('books') && action?('index') %>">
-            <a href="/singleview" title="Single View">
-               <em class="icon-speedometer"></em>
-               <span>Single View</span>
-            </a>
-         </li>
+
+        <li class="nav-heading">
+          <span>Main Navigation</span>
+        </li>
+
+
+        <li class="<%= 'active' if controller?('books') && action?('index') %>">
+          <a href="/singleview" title="Single View">
+            <em class="icon-speedometer"></em>
+              <span>Single View</span>
+          </a>
+        </li>
+
+
+        <li class="<%= 'active' if controller?('books')%>">
+          <a href="#books" title="Books" data-toggle="collapse">
+            <em class="fa fa-book"></em>
+            <span data-localize="sidebar.nav.books.BOOKS">Books</span>
+          </a>
+          <ul id="books" class="nav sidebar-subnav collapse">
+            <li class="sidebar-subnav-header">books</li>
+            <li class="<%= 'active' if controller?('books') && action?('login') %>">
+              <a href="/books/login" title="Login">
+                <span data-localize="sidebar.nav.books.LOGIN">Login</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('register') %>">
+              <a href="/books/register" title="Sign up">
+                <span data-localize="sidebar.nav.books.REGISTER">Sign up</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('recover') %>">
+              <a href="/books/recover" title="Recover Password">
+                <span data-localize="sidebar.nav.books.RECOVER">Recover Password</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('lock') %>">
+              <a href="/books/lock" title="Lock">
+                <span data-localize="sidebar.nav.books.LOCK">Lock</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('template') %>">
+              <a href="/books/template" title="Starter Template">
+                <span data-localize="sidebar.nav.books.STARTER">Starter Template</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('notfound') %>">
+              <a href="/books/notfound" title="notfound">
+                <span>404</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('error500') %>">
+              <a href="/books/error500" title="error500">
+                <span>500</span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('books') && action?('maintenance') %>">
+              <a href="/books/maintenance" title="Maintenance">
+                <span>Maintenance</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
       </ul>
       <!-- END sidebar nav-->
    </nav>
