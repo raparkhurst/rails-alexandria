@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'co
 # application.js, application.scss, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( jquery/dist/jquery.min.js bootstrap/dist/js/bootstrap.min.js fastclick/lib/fastclick.js admin-lte/dist/js/adminlte.min.js )
