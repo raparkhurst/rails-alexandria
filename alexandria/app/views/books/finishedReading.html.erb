@@ -1,37 +1,19 @@
-<section class="content-header">
-  <h1>
-    Reading List
-    <small>Books I'm currently reading</small>
-  </h1>
-  <ol class="breadcrumb">
-    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-    <li><a href="/"><i class="fa fa-book"></i> My Books</a></li>
-    <li><a href="/"><i class="fa fa-book"></i> Current Reading List</a></li>
-  </ol>
-</section>
+<!-- Default box -->
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Book List</h3>
 
-<!-- Main content -->
-<section class="content">
-
-  <!-- Default box -->
-  <div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title">Book List</h3>
-
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                title="Collapse">
-          <i class="fa fa-minus"></i></button>
-        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-          <i class="fa fa-times"></i></button>
-      </div>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+              title="Collapse">
+        <i class="fa fa-minus"></i></button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+        <i class="fa fa-times"></i></button>
     </div>
-
-    <%= render 'reading_list', book_query: @booksFinishedReading %>
-
-
   </div>
-  <!-- /.box -->
 
-</section>
-<!-- /.content -->
+  <%= render 'reading_list', book_query: @booksFinishedReading %>
+
+
+</div>
+<!-- /.box -->

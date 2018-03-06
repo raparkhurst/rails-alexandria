@@ -1,73 +1,35 @@
 <!DOCTYPE html>
-<html style="min-height: 100%;">
-  <head>
-    <title>AdminLte</title>
-    <%= csrf_meta_tags %>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+  <meta name="keywords" content="" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" %>
-    <%= stylesheet_link_tag "http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" %>
+  <%= stylesheet_link_tag 'application_back', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-
-
-<body class="hold-transition skin-green sidebar-mini" style="min-height: 100%;">
-<!-- Site wrapper -->
-<div class="wrapper" style="min-height: 100%;">
-
-  <%= render 'navbar' %>
-
-  <!-- =============================================== -->
-
-  <%= render 'sidebar_left' %>
-
-  <!-- =============================================== -->
-
-  <!-- yield section -->
-  <div class="content-wrapper" style="min-height: 100%;">
-    <%= yield %>
+<div class="wrapper">
+  <%= render partial: 'shared/header' %>
+  <%= render partial: 'shared/sidebar' %>
+  <div class="content-wrapper">
+    <%= render partial: 'shared/content_header' %>
+    <section class="content">
+      <%= render partial: 'shared/messages' %>
+      <%= yield %>
+    </section>
   </div>
-
-  <%= render 'footer' %>
-
-  <%= render 'sidebar_right' %>
+  <%= render partial: 'shared/footer' %>
 </div>
-<!-- ./wrapper -->
+</body>
 
+<%= javascript_include_tag 'application_back' %>
 
-<!-- jQuery 3 -->
-<%= javascript_include_tag 'jquery/dist/jquery.min.js' %>
-<!-- <script src="../../bower_components/jquery/dist/jquery.min.js"></script> -->
-
-<!-- Bootstrap 3.3.7 -->
-<%= javascript_include_tag 'bootstrap/dist/js/bootstrap.min.js' %>
-<!-- <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
-
-<!-- SlimScroll -->
-<!-- <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script> -->
-
-<!-- FastClick -->
-<%= javascript_include_tag 'fastclick/lib/fastclick.js' %>
-<!-- <script src="../../bower_components/fastclick/lib/fastclick.js"></script> -->
-
-<!-- AdminLTE App -->
-<%= javascript_include_tag 'admin-lte/dist/js/adminlte.min.js' %>
-<!-- <script src="../../dist/js/adminlte.min.js"></script> -->
-
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="../../dist/js/demo.js"></script> -->
-
-
-
-
-<script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
-</script>
-
-
-  </body>
+<% if content_for?(:added_scripts) %>
+  <%= yield :added_scripts %>
+<% end %>
 </html>

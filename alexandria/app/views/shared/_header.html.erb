@@ -1,0 +1,47 @@
+<header class="main-header">
+  <i src="oops.jpg" class="logo">
+
+    <span class="logo-mini">
+      <%= image_tag("logos/alexandria_logo3_305x305.png", alt: "Alexandria", width: '50', height: '50') %>
+    </span>
+
+    <span class="logo-lg">
+    <%= image_tag("logos/alexandria_logo3_1000x200.png", alt: "Alexandria", width: '200', height: '50') %>
+  </i>
+
+  <nav class="navbar navbar-static-top">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+    </a>
+
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag("icons/users/avatar-white-male_160x160.png", alt: "User Logo", width: '160', height: '160', class: "user-image") %>
+            <span class="hidden-xs">Cool Developer</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="user-header">
+              <%= image_tag("icons/users/avatar-white-male_160x160.png", alt: "User Logo", width: '160', height: '160', class: "user-image") %>
+
+              <p>
+                Cool Developer
+                <small>Member since <%= Time.now().year() %></small>
+              </p>
+            </li>
+
+            <li class="user-footer">
+              <div class="pull-left">
+                asdf
+              </div>
+              <div class="pull-right">
+                asdfasdf
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
