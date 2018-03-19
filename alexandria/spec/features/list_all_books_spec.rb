@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Viewing the list of books' do
+describe 'Viewing the list of books currently reading' do
 
   it "shows the books" do
     book1 = Book.create(name: "Harry Potter And the Chamber of Secrets",
@@ -21,17 +21,16 @@ describe 'Viewing the list of books' do
 
     visit books_url
 
-    #expect(page).to have_text("3 Books")
-    expect(page).to have_text(book1.name)
-    expect(page).to have_text(book2.name)
-    expect(page).to have_text(book3.name)
+    expect(page).to have_text("3 Books")
+    expect(page).to have_text(book1.name[0...60])
+    expect(page).to have_text(book2.name[0...60])
+    expect(page).to have_text(book3.name[0...60])
 
-    expect(page).to have_text(book1.description[0..10])
+    expect(page).to have_text(book1.description[0...30])
 
     # Removed these elements from the test as they have been replaced by icons/badges
     #expect(page).to have_text(book1.chapter)
     #expect(page).to have_text(book1.paid)
   end
-
 
 end

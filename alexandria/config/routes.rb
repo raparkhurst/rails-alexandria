@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #patch   "books/:id"           => "books#update"
 
   get       "books/finishedReading"      => "books#finishedReading", as: "finished_reading"
-  get       "books/currentlyReading"     => "books#currentlyReading", as: "currently_reading"
+  #get       "books/currentlyReading"     => "books#currentlyReading", as: "currently_reading"
   get       "books/allBooks"              => "books#allBooks", as: "all_books"
   resources :books
 
