@@ -1,43 +1,8 @@
-<div class="wrapper">
-  <!-- Page content -->
-  <nav id="content">
-    <!-- Main page section -->
-    <div class="container">
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Book Information</h3>
 
-      <!-- header block -->
-      <div class="row">
+    <%= render 'form', form_page: "show" %>
 
-        <!-- Header Information -->
-        <div class="col-9">
-        <!--   <h1>Book Information for <%= @book.name %></h1> -->
-          <h1></h1>
-        </div>
-
-        <!-- Book badges -->
-        <div class="col-3">
-          <!-- fill this in later when we have more information -->
-
-        </div>
-      </div>
-
-      <%= render 'form', form_page: "show" %>
-
-
-      <!-- here for historical reference -->
-      <!-- original way I'd thought to make this happen -- makes the buttons larger!  -->
-      <!-- <div class="btn btn-primary"> -->
-      <!--   <%= link_to "Edit", edit_book_path(@book), :style => 'color:white;', :class => "btn btn-primary" %> -->
-      <!-- </div> -->
-      <!--  -->
-      <!-- <div class="btn btn-primary"> -->
-      <!--   <%= link_to "All Books", books_path, :style => 'color:white;', :class => "btn" %> -->
-      <!-- </div> -->
-
-      <!-- end historical reference -->
-
-    </div>
-    <!-- End Page Content -->
-
-  </nav>
+  </div>
 </div>
-

@@ -1,90 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alexandria</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+  <meta name="keywords" content="" />
+
+  <%= stylesheet_link_tag 'application_back', media: 'all' %>
   <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  <link href="/assets/logos/logo_16x16.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
+<body class="hold-transition skin-blue sidebar-mini">
 
-
-<header>
-  <!-- options I had but aren't using:  navbar-expand -->
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <!-- Brand logo -->
-    <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
-      <%= image_tag("logos/logo-64x64_inverted.png", alt: "Digital Synapse Logo", width: '24', height: '24') %>
-    </a>
-
-
-
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-
-    </ul>
-
-  </nav>
-</header>
-
-
-<body>
-
-<div id="wrapper">
-  <!-- Sidebar -->
-  <div id="sidebar-wrapper">
-
-
-    <%= render 'sidebar' %>
-  </div>
-  <!-- /#sidebar-wrapper -->
-
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-
-
+<div class="wrapper">
+  <%= render partial: 'shared/header' %>
+  <%= render partial: 'shared/sidebar' %>
+  <div class="content-wrapper">
+    <%= render partial: 'shared/content_header' %>
+    <section class="content">
+      <%= render partial: 'shared/messages' %>
       <%= yield %>
-
-    </div>
+    </section>
   </div>
-  <!-- /#page-content-wrapper -->
-
+  <%= render partial: 'shared/footer' %>
 </div>
-<!-- /#wrapper -->
-
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
-
-
-<!-- yield -->
 </body>
 
+<%= javascript_include_tag 'application_back' %>
 
-<nav class="navbar fixed-bottom navbar-light bg-faded">
-  <div class="container text-center">
-    <copyright>&copy; Digital Synapse, LLC <%= Time.now.year %></copyright>
-    <!--
-    <nav>
-      <ul>
-        <a class="navbar-brand" href="#">Home</a>
-        <a class="navbar-brand" href="#">About</a>
-      </ul>
-    </nav>
-    -->
-  </div>
-
-</nav>
-
+<% if content_for?(:added_scripts) %>
+  <%= yield :added_scripts %>
+<% end %>
 </html>
-

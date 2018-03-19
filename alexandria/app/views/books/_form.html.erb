@@ -1,8 +1,8 @@
 <%= form_for(@book) do |f| %>
 
   <!-- Book Name -->
-  <div class="form-group row">
-    <%= f.label "Book Title", :class => "col-3 col-form-label"%>
+  <div class="form-group">
+    <%= f.label "Book Title", :class => "" %>
     <% if form_page == "show" %>
       <%= f.text_field :name, autofocus: true, :class => "col-9 form-control", id: 'book-name', disabled: true %>
     <% else %>
@@ -12,7 +12,7 @@
 
 
   <!-- Book Description -->
-  <div class="form-group row">
+  <div class="form-group">
     <%= f.label "Book summary / review", :class => "col-3 col-form-label" %>
     <% if form_page == "show" %>
       <%= f.text_area :description, rows: 7, :class => "col-9 form-control", id: 'book-description', disabled: true %>
@@ -24,7 +24,7 @@
 
 
   <!-- Is book a chapter book -->
-  <div class="form-group row">
+  <div class="form-group">
     <%= f.label "Is book a chapter book", :class => "col-3 col-form-label"%>
     <!-- <%= f.text_field :chapter, :class => "col-9 form-control"%> -->
     <% if form_page == "show" %>
@@ -37,7 +37,7 @@
 
 
   <!-- Is book part of a series -->
-  <div class="form-group row">
+  <div class="form-group">
     <%= f.label "Is the book part of a series", :class => "col-3 col-form-label"%>
     <!-- <%= f.text_field :part_of_series, :class => "col-9 form-control"%> -->
     <% if form_page == "show" %>
@@ -50,7 +50,7 @@
 
 
   <!-- Date started reading book -->
-  <div class="form-group row">
+  <div class="form-group">
     <%= f.label "Date you started reading", :class => "col-3 col-form-label"%>
     <% if form_page == "show" %>
       <%= f.date_field :date_start, :class => "col-9 form-control", id: 'book-date-start-reading', disabled: true %>
@@ -62,7 +62,7 @@
 
 
   <!-- Date ended reading book -->
-  <div class="form-group row">
+  <div class="form-group">
     <%= f.label "Date you finished the book", :class => "col-3 col-form-label"%>
     <% if form_page == "show" %>
       <%= f.date_field :date_end, :class => "col-9 form-control", id: 'book-date-end', disabled: true %>
@@ -74,7 +74,7 @@
 
 
   <!-- Has reward been paid out -->
-  <div class="form-group row">
+  <div class="form-group">
     <%= f.label "Has been been paid out", :class => "col-3 col-form-label"%>
     <!-- <%= f.text_field :paid, :class => "col-9 form-control"%> -->
     <% if form_page == "show" %>
@@ -90,25 +90,25 @@
     <!-- Navigation Buttons -->
     <div class="btn-group">
       <!-- button to edit entry -->
-      <%= link_to "Edit Book", edit_book_path(@book), :class => "btn btn-outline-success" %>
+      <%= link_to "Edit Book", edit_book_path(@book), :class => "btn btn-success" %>
 
       <!-- button to go back to 'all books' -->
-      <%= link_to "All Books", books_path, :class => "btn btn-outline-primary" %>
+      <%= link_to "All Books", books_path, :class => "btn btn-primary" %>
 
       <!-- button to delete -->
       <%= link_to "Delete", book_path(@book), method: :delete,
                   data: {confirm:  "Are you sure?"},
-                  :class => "btn btn-outline-danger" %>
+                  :class => "btn btn-danger" %>
     </div>
   <% else %>
     <!-- Navigation Buttons -->
     <div class="btn-group">
 
-      <%= f.submit :class => "btn btn-outline-success", id: 'button-submit' %>
+      <%= f.submit :class => "btn btn-primary", id: 'button-submit' %>
 
 
       <!-- button to cancel editing entry -->
-      <%= link_to "Cancel", books_path, :class => "btn btn-outline-secondary", id: 'button-cancel' %>
+      <%= link_to "Cancel", books_path, :class => "btn btn-default", id: 'button-cancel' %>
 
     </div>
     <!-- End Navigation Buttons -->

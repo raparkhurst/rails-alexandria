@@ -1,8 +1,20 @@
 class BooksController < ApplicationController
   def index
-    @booksCompleteList = Book.getAllBooks
+    #@booksCompleteList = Book.getAllBooks
     @booksCurrentlyReading = Book.getCurrentlyReading
+    #@booksFinishedReading = Book.getFinishedReading
+  end
+
+  def finishedReading
     @booksFinishedReading = Book.getFinishedReading
+  end
+
+  def currentlyReading
+    @booksCurrentlyReading = Book.getCurrentlyReading
+  end
+
+  def allBooks
+    @booksCompleteList = Book.getAllBooks
   end
 
 
