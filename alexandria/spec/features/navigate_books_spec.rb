@@ -17,8 +17,8 @@ describe 'Navigating books' do
     book = Book.create(book_attributes)
     visit books_url
 
-    first(:link, book.name).click
-    #click_link book.name
+    #first(:link, book.name).click
+    click_link book.name
     expect(current_path).to eq(book_path(book))
   end
 

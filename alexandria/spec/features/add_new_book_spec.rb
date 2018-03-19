@@ -5,7 +5,7 @@ describe "Adding a new book" do
   it "adds a new book and shows the book's details" do
     visit books_url
 
-    click_link 'Add Book'
+    click_link 'Add a Book'
 
     expect(current_path).to eq(new_book_path)
 
