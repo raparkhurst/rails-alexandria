@@ -3,3 +3,4 @@
 vagrant/.vagrant/*
 .vagrant/*
 Gemfile.lock
+alexandria/tmp
