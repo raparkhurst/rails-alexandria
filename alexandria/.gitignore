@@ -29,4 +29,5 @@ Gemfile.lock
 # Ignore database.yml settings -- Chef controls this
 /app/config/database.yml
 
-./output
+/output
+/output/*
