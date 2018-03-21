@@ -31,3 +31,7 @@ Gemfile.lock
 
 /output
 /output/*
+
+
+# ignore public assets -- rely on rails assets:precompile for this
+/public/assets/
