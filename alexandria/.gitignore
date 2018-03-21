@@ -21,3 +21,12 @@
 /yarn-error.log
 
 .byebug_history
+
+
+# Gemfile.lock
+Gemfile.lock
+
+# Ignore database.yml settings -- Chef controls this
+/app/config/database.yml
+
+./output
