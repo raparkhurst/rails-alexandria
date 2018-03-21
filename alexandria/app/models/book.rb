@@ -14,4 +14,8 @@ class Book < ApplicationRecord
     where.not(date_end: nil).order('id')
   end
 
+
+  validates :name, :date_start, presence: true
+  validates :description, length: { minimum: 25 }
+
 end

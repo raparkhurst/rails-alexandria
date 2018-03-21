@@ -28,7 +28,10 @@ describe "Editing a Book" do
     click_button 'Update Book'
 
     expect(current_path).to eq(book_path(book))
-    expect(page).to have_text(book_updated_title)
+
+    click_link 'Edit'
+    expect(find_field('book-name').value).to eq(book_updated_title)
+
 
   end
 

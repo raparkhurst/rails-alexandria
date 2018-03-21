@@ -13,8 +13,8 @@
         <table class="table table-hover">
 
           <% book_query.each do |book| %>
-            <td style="width:50%"><%= link_to book.name[0...60], book %></td>
-            <td style="width:30%"><%= link_to book.description[0...30], book %></td>
+            <td style="width:50%"><%= link_to truncate(book.name, length: 60, separator: ' '), book %></td>
+            <td style="width:30%"><%= link_to truncate(book.description, length: 40, separator: ' '), book %></td>
 
 
             <!-- Book badges section -->

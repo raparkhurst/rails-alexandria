@@ -14,6 +14,7 @@
   <!-- Book Description -->
   <div class="form-group">
     <%= f.label "Book summary / review", :class => "col-3 col-form-label" %>
+    <p>25 character minimum for description</p>
     <% if form_page == "show" %>
       <%= f.text_area :description, rows: 7, :class => "col-9 form-control", id: 'book-description', disabled: true %>
     <% else %>
