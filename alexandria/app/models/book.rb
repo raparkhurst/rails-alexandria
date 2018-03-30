@@ -16,6 +16,6 @@ class Book < ApplicationRecord
 
 
   validates :name, :date_start, presence: true
-  validates :description, length: { minimum: 25 }
+  #validates :description, length: { minimum: 25 }
 
 end

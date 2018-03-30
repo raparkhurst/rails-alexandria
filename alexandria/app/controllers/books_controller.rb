@@ -30,9 +30,12 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-
-    redirect_to @book
+    if @book.update(book_params)
+      #flash[:notice] = "Book Successfully updated!"
+      redirect_to @book, notice: "Book successfully updated!"
+    else
+      render :edit
+    end
   end
 
 
@@ -42,20 +45,25 @@ class BooksController < ApplicationController
 
 
   def create
-
     @book = Book.new(book_params)
-    @book.save
+    if @book.save
+      #flash[:notice] = "Book Successfully added!"
+      #redirect_to @book
+      redirect_to books_url, notice: "Book successfully added!"
+    else
+      render :new
+    end
 
-    #redirect_to @book
-    redirect_to books_url
   end
 
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-
-    redirect_to books_url
+    if @book.destroy
+      redirect_to books_url, alert: "Book deleted!"
+    else
+      render :destroy
+    end
   end
 
 

@@ -1,5 +1,22 @@
 <%= form_for(@book) do |f| %>
 
+  <% if @book.errors.any? %>
+    <section id="errors" style="background:lightyellow;">
+      <header>
+        <h3 style="color:red;">Could not save book!</h3>
+        <h4>
+          Please correct the following
+          <%= pluralize(@book.errors.count, "error") %>:
+        </h4>
+      </header>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
   <!-- Book Name -->
   <div class="form-group">
     <%= f.label "Book Title", :class => "" %>
