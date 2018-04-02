@@ -1,6 +1,8 @@
 .idea*
 .idea/*
 vagrant/.vagrant/*
+vagrant/.vagrant
 .vagrant/*
 Gemfile.lock
 alexandria/tmp
+
