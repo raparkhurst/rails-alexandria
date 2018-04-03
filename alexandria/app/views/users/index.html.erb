@@ -1,0 +1,43 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><%= pluralize(@users.size, 'User') %></h3>
+
+    <% if @users.size > 0 %>
+
+      <!-- /.box-header -->
+      <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>Created At</th>
+          </tr>
+          </thead>
+          <% @users.each do |user| %>
+            <tr> <!-- start each user on new row -->
+              <td><%= user.id %></td>
+              <td><%= link_to user.username, user %></td>
+              <td><%= user.firstname %></td>
+              <td><%= user.lastname %></td>
+              <td><%= user.email %></td>
+              <td><%= user.created_at %></td>
+
+            </tr> <!-- end each user row -->
+
+
+          <% end %>
+
+        </table>
+      </div>
+      <!-- /.box-body -->
+    <% end %>
+
+
+
+  </div>
+</div>

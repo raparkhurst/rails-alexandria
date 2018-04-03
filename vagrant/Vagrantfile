@@ -44,7 +44,8 @@ VAGRANT_API_VERSION = '2'
 Vagrant.configure(VAGRANT_API_VERSION) do |config|
 
   config.vm.provider 'virtualbox' do |vb|
-    vb.customize ['modifyvm', :id, '--memory', '2048']
+    vb.customize ['modifyvm', :id, '--memory', '4096']
+    vb.customize ['modifyvm', :id, '--cpus', '2']
   end
 
   #config.omnibus.chef_version = '12.11.18'

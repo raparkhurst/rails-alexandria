@@ -1,0 +1,106 @@
+<%= form_for(@user) do |f| %>
+
+  <% if @user.errors.any? %>
+    <section id="errors" style="background:lightyellow;">
+      <header>
+        <h3 style="color:red;">Could not save user!</h3>
+        <h4>
+          Please correct the following
+          <%= pluralize(@user.errors.count, "error") %>:
+        </h4>
+      </header>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+
+  <%= form_for @user, url: @url, role: :form, html: { multipart: true } do |f| %>
+
+
+    <div class="box">
+
+      <div class="box-header">
+        <h3 class="box-title">User Information</h3>
+      </div>
+
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+          <li><a href="#organizations" data-toggle="tab">Organizations</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="active tab-pane" id="profile">
+            <div class="row">
+              <div class="col-md-8">
+                <%= render partial: 'form', locals: { f: f } %>
+              </div>
+
+              <div class="col-md-4">
+
+
+
+                <% if @user.new_record? %>
+                  <%= image_tag("icons/users/avatar-white-male_160x160.png", alt: "User Logo", width: '160', height: '160', class: "user-image") %>
+                <% else %>
+                  <%= profile_image_fullsize(@user) %>
+                <% end %>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <div class="activity tab-pane" id="organizations">
+            <p>nothing to show here</p>
+          </div>
+
+          <% if form_page == "show" %>
+            <!-- Navigation Buttons -->
+            <div class="btn-group">
+              <!-- button to edit entry -->
+              <%= link_to "Edit User", edit_user_path(@user), :class => "btn btn-success" %>
+
+              <!-- button to go back to 'all books' -->
+              <%= link_to "All Users", users_path, :class => "btn btn-primary" %>
+
+              <!-- button to delete -->
+              <%= link_to "Delete User", user_path(@user), method: :delete,
+                          data: {confirm:  "Are you sure?"},
+                          :class => "btn btn-danger" %>
+            </div>
+          <% else %>
+            <!-- Navigation Buttons -->
+            <div class="btn-group">
+
+              <%= f.submit :class => "btn btn-primary", id: 'button-submit' %>
+
+              <!-- button to cancel editing entry -->
+              <%= link_to "Cancel", users_path, :class => "btn btn-default", id: 'button-cancel' %>
+
+            </div>
+            <!-- End Navigation Buttons -->
+          <% end %>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+  <% end %>
+
+
+
+
+<% end %>

@@ -14,3 +14,15 @@ end
 def book_attributes_multiple(overrides = {})
 
 end
+
+
+def user_attributes(overrides = {})
+  {
+    username: "Example_User",
+    email: "user@example.com",
+    firstname: "test",
+    lastname: "user",
+    password: "secret098EDF!@#",
+    password_confirmation: "secret098EDF!@#"
+  }.merge(overrides)
+end

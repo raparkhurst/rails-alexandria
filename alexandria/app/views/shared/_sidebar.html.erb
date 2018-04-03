@@ -45,7 +45,7 @@
       <!-- Books Section -->
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-book"></i> <span>My Books</span>
+          <i class="glyphicon glyphicon-book"></i> <span>My Books</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -72,6 +72,31 @@
           <li>
             <%= link_to all_books_path do %>
               <i class="fa fa-circle-o"></i> All Books
+            <% end %>
+          </li>
+
+
+        </ul>
+      </li>
+
+      <!-- Users section -->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Users & Organizations</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to users_path do %>
+              <i class="fa fa-circle-o"></i> Show Users
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to new_user_path do %>
+              <i class="fa fa-circle-o"></i> Add User
             <% end %>
           </li>
 

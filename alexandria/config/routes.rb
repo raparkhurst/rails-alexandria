@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # root URL -- for now setting to index, but will change once we get more stuff bolted on

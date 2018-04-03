@@ -10,20 +10,25 @@ describe 'Verifies Book validation requirements' do
   end
 
 
-  it "requires a description" do
+  it "does not require a description" do
     book = Book.new(description: "")
     book.valid?
-    expect(book.errors[:description].any?).to eq(true)
+    expect(book.errors[:description].any?).to eq(false)
   end
 
 
-  it "should fail with a description shorter than 25 characters" do
-    book = Book.new(name: "Harry Potter and the Chamber of Secrets",
-                    description: "X" * 24,
-                    date_start: Date.today - 90.days)
-    book.valid?
-    expect(book.errors[:description].any?).to eq(true)
-  end
+  ######
+  # DISABLING for now -- currently not going to require a description
+  # since you may not have one when you just start reading
+  # Will try to re-implement later
+  ######
+  #it "should fail with a description shorter than 25 characters" do
+  #  book = Book.new(name: "Harry Potter and the Chamber of Secrets",
+  #                  description: "X" * 24,
+  #                  date_start: Date.today - 90.days)
+  #  book.valid?
+  #  expect(book.errors[:description].any?).to eq(true)
+  #end
 
 
   it "should pass with a description of 25 characters or more" do
