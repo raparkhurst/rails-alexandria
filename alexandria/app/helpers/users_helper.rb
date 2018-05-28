@@ -11,4 +11,14 @@ module UsersHelper
   end
 
 
+
+  def profile_image_navbar(user)
+    url = "https://secure.gravatar.com/avatar/#{user.gravatar_id}"
+    image_tag(url, alt: user.username,
+              alt: "User Logo",
+              width: '48',
+              height: '48',
+              class: "user-image")
+  end
+
 end

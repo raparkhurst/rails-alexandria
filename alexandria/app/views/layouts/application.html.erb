@@ -13,19 +13,23 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-<div class="wrapper">
-  <%= render partial: 'shared/header' %>
-  <%= render partial: 'shared/sidebar' %>
-  <div class="content-wrapper">
-    <%= render partial: 'shared/content_header' %>
-    <section class="content">
-      <%= render partial: 'shared/messages' %>
-      <%= yield %>
-    </section>
+<% if current_page?("/login") %>
+  <%= yield %>
+<% else %>
+  <div class="wrapper">
+    <%= render partial: 'shared/header' %>
+    <%= render partial: 'shared/sidebar' %>
+    <div class="content-wrapper">
+      <%= render partial: 'shared/content_header' %>
+      <section class="content">
+        <%= render partial: 'shared/messages' %>
+        <%= yield %>
+      </section>
+    </div>
+    <%= render partial: 'shared/footer' %>
   </div>
-  <%= render partial: 'shared/footer' %>
-</div>
-</body>
+  </body>
+<% end %>
 
 <%= javascript_include_tag 'application_back' %>
 

@@ -16,31 +16,51 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag("icons/users/avatar-white-male_160x160.png", alt: "User Logo", width: '160', height: '160', class: "user-image") %>
-            <span class="hidden-xs">Cool Developer</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="user-header">
-              <%= image_tag("icons/users/avatar-white-male_160x160.png", alt: "User Logo", width: '160', height: '160', class: "user-image") %>
 
-              <p>
-                Cool Developer
-                <small>Member since <%= Time.now().year() %></small>
-              </p>
-            </li>
 
-            <li class="user-footer">
-              <div class="pull-left">
-                asdf
-              </div>
-              <div class="pull-right">
-                asdfasdf
-              </div>
-            </li>
-          </ul>
-        </li>
+        <% if current_user_admin? %>
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag("icons/stickers/admin_icon_purple_256x256.png", alt: "Admin", width: '24', height: '24') %>
+            </a>
+          </li>
+        <% end %>
+
+
+        <% if current_user %>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= profile_image_navbar(current_user) %>
+
+              <span class="hidden-xs"><%= current_user.firstname %> <%= current_user.lastname %></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <%= profile_image_fullsize(current_user) %>
+                <p>
+                  <%= current_user.firstname %> <%= current_user.lastname %>
+                  <small>Member since <%= current_user.created_at %></small>
+                </p>
+              </li>
+
+              <li class="user-footer">
+                <div class="pull-left">
+                  <%= link_to "Profile", current_user, class: "btn btn-success" %>
+                </div>
+                <div class="pull-right">
+                  <%= link_to "Log Out", session_path, method: :delete, class: "btn btn-danger" %>
+                </div>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "sign up", signup_path, class: "button" %>
+          </li>
+          <li>
+            <%= link_to "sign in", new_session_path, class: "button" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>

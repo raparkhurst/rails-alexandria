@@ -63,30 +63,53 @@
           </div>
 
           <% if form_page == "show" %>
-            <!-- Navigation Buttons -->
-            <div class="btn-group">
-              <!-- button to edit entry -->
-              <%= link_to "Edit User", edit_user_path(@user), :class => "btn btn-success" %>
+            <% if current_user?(@user) %>
+              <!-- Navigation Buttons -->
+              <div class="btn-group">
+                <!-- button to edit entry -->
+                <%= link_to "Edit User", edit_user_path(@user), :class => "btn btn-success" %>
 
-              <!-- button to go back to 'all books' -->
-              <%= link_to "All Users", users_path, :class => "btn btn-primary" %>
+                <!-- button to go back to 'all books' -->
+                <%= link_to "All Users", users_path, :class => "btn btn-primary" %>
 
-              <!-- button to delete -->
-              <%= link_to "Delete User", user_path(@user), method: :delete,
-                          data: {confirm:  "Are you sure?"},
-                          :class => "btn btn-danger" %>
-            </div>
+                <!-- button to delete -->
+                <%= link_to "Delete User", user_path(@user), method: :delete,
+                            data: {confirm:  "Are you sure?"},
+                            :class => "btn btn-danger" %>
+              </div>
+            <% end %>
+
+            <% if current_user_admin? %>
+              <!-- Navigation Buttons -->
+              <div class="btn-group">
+                <!-- button to edit entry -->
+                <%= link_to "Edit User", edit_user_path(@user), :class => "btn btn-success" %>
+
+                <!-- button to go back to 'all books' -->
+                <%= link_to "All Users", users_path, :class => "btn btn-primary" %>
+
+                <!-- button to delete -->
+                <%= link_to "Delete User", user_path(@user), method: :delete,
+                            data: {confirm: "Are you sure?"},
+                            :class => "btn btn-danger" %>
+              </div>
+
+            <% end %>
+
           <% else %>
-            <!-- Navigation Buttons -->
-            <div class="btn-group">
 
-              <%= f.submit :class => "btn btn-primary", id: 'button-submit' %>
 
-              <!-- button to cancel editing entry -->
-              <%= link_to "Cancel", users_path, :class => "btn btn-default", id: 'button-cancel' %>
+              <!-- Navigation Buttons -->
+              <div class="btn-group">
 
-            </div>
-            <!-- End Navigation Buttons -->
+                <%= f.submit :class => "btn btn-primary", id: 'button-submit' %>
+
+                <!-- button to cancel editing entry -->
+                <%= link_to "Cancel", users_path, :class => "btn btn-default", id: 'button-cancel' %>
+
+              </div>
+              <!-- End Navigation Buttons -->
+
           <% end %>
 
         </div>
