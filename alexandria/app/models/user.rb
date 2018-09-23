@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :books, dependent: :destroy
+
   has_secure_password
 
   validates :username, presence: true, format: /\A\S/, uniqueness: { case_sensitive: false }

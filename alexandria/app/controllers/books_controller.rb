@@ -5,21 +5,25 @@ class BooksController < ApplicationController
 
 
   def index
+    @user_id = current_user
     #@booksCompleteList = Book.getAllBooks
-    @booksCurrentlyReading = Book.getCurrentlyReading
+    @booksCurrentlyReading = Book.getCurrentlyReading(@user_id)
     #@booksFinishedReading = Book.getFinishedReading
   end
 
   def finishedReading
-    @booksFinishedReading = Book.getFinishedReading
+    @user_id = current_user
+    @booksFinishedReading = Book.getFinishedReading(@user_id)
   end
 
   def currentlyReading
-    @booksCurrentlyReading = Book.getCurrentlyReading
+    @user_id = current_user
+    @booksCurrentlyReading = Book.getCurrentlyReading(@user_id)
   end
 
   def allBooks
-    @booksCompleteList = Book.getAllBooks
+    @user_id = current_user
+    @booksCompleteList = Book.getAllBooks(@user_id)
   end
 
 
@@ -51,6 +55,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user = current_user
     if @book.save
       #flash[:notice] = "Book Successfully added!"
       #redirect_to @book
