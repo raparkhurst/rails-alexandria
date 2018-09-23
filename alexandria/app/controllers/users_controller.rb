@@ -12,6 +12,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if not current_user_admin?
+      unless session[:user_id] == @user.id
+        redirect_to root_url
+        return
+      end
+    end
   end
 
 
@@ -63,7 +69,7 @@ class UsersController < ApplicationController
 
   def require_correct_user
     @user = User.find(params[:id])
-    unless current_user?(@user)
+    unless current_user?(@user)  || current_user.admin?
       redirect_to root_url
     end
   end

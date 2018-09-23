@@ -33,6 +33,5 @@
   "run_list": [
       "recipe[ds-base::rails]",
       "recipe[ds-rails::development_node]"
-      
   ]
 }

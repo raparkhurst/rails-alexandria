@@ -92,6 +92,35 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
           "install_method" => "package"
         }
       },
+      "ds-base" => {
+        "rails" => {
+          "path" => "/var/www/alexandria/public",
+          "rails_app_env" => "development"
+        },
+        "ds-alexandria" => {
+          "database" => {
+            "database_type" => "postgres"
+          },
+          "development" => {
+            "database" => {
+              "database_name" => "alexandria_development_db",
+              "database_user" => "alexandria_development_user"
+            }
+          },
+          "test" => {
+            "database" => {
+              "database_name" => "alexandria_test_db",
+              "database_user" => "alexandria_test_user"
+            }
+          },
+          "production" => {
+            "database" => {
+              "database_name" => "alexandria_db",
+              "database_user" => "alexandria"
+            }
+          }
+        }
+      },
       "vagrant" => "true"
     }
 

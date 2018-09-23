@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180527222249) do
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "date_start", default: "2018-04-19 18:03:43"
+    t.datetime "date_start", default: "2018-09-23 19:55:59"
     t.datetime "date_end"
     t.datetime "date_paid"
     t.boolean "part_of_series", default: false
